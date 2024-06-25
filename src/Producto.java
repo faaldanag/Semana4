@@ -1,26 +1,17 @@
 public class Producto {
-    private String codigo;
-    public String nombre;
-    public double precio;
-    private int stock;
-    public String categoria;
+    private String nombre;
+    private double precio;
+    private int cantidad;
+    private String descripcion;
 
-    public Producto(String codigo, String nombre, double precio, int stock, String categoria) {
-        this.codigo = codigo;
+    public Producto(String nombre, double precio, int cantidad, String descripcion) {
         this.nombre = nombre;
         this.precio = precio;
-        this.stock = stock;
-        this.categoria = categoria;
+        this.cantidad = cantidad;
+        this.descripcion = descripcion;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
+    // Getters y Setters
     public String getNombre() {
         return nombre;
     }
@@ -37,24 +28,23 @@ public class Producto {
         this.precio = precio;
     }
 
-    public int getStock() {
-        return stock;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public void actualizarStock(int cantidad) {
-        this.stock += cantidad;
+    public void actualizarInventario(int cantidad) {
+        this.cantidad += cantidad;
     }
-
 }

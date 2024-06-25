@@ -1,29 +1,37 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
 
-        Supermercado supermercado = new Supermercado();
+        // Crear algunos productos
+        Producto producto1 = new Producto("Leche", 2.5, 100, "Leche desnatada");
+        Producto producto2 = new Producto("Pan", 1.0, 200, "Pan integral");
 
-        Producto prod1 = new Producto("001", "Leche", 1.20, 100, "Lácteos");
-        Producto prod2 = new Producto("002", "Pan", 0.80, 50, "Panadería");
-        supermercado.agregarProducto(prod1);
-        supermercado.agregarProducto(prod2);
+        // Crear un cliente
+        Cliente cliente1 = new Cliente("Juan");
 
-        //Agregar cliente
-        Cliente cliente1 = new Cliente(0001, "Juan", "Perez", "Av. Siempre Viva 123", "3123456789");
-        supermercado.registrarCliente(cliente1);
+        // El cliente busca productos
+        cliente1.buscarProducto(producto1);
+        cliente1.buscarProducto(producto2);
 
-        //Agregar cliente
-        Vendedor vendedor1 = new Vendedor(0002, "Juan", "Perez", "3123456789");
-        supermercado.registrarVendedor(vendedor1);
+        // El cliente añade productos al carrito
+        cliente1.añadirProducto(producto1);
+        cliente1.añadirProducto(producto2);
 
-        //Agregar Factura
-        supermercado.registrarVenta(cliente1, vendedor1, Arrays.asList(prod1, prod2));
-        Factura factura = supermercado.getFacturas().get(0);
+        // El cliente elimina un producto del carrito
+        cliente1.eliminarProducto(producto2);
 
-        System.out.println("Total de la factura: " + factura.getTotal());
+        // El cliente realiza la compra
+        Administrador administrador = new Administrador("Admin1");
+        cliente1.realizarCompra(administrador);
+
+        // Crear un vendedor
+        Vendedor vendedor1 = new Vendedor("Ana");
+
+        // El vendedor registra un nuevo producto
+        vendedor1.registrarProducto(new Producto("Manzanas", 1.5, 150, "Manzanas rojas"));
+
+        // El administrador gestiona una venta
+        administrador.gestionarVenta(cliente1);
     }
 }

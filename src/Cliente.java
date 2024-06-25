@@ -2,63 +2,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
-    private int Documento;
-    public String Nombre, Apellido, Direccion;
-    public String  Celular;
-    private List<Factura> HistorialCompras;
+    private String nombre;
+    private List<Producto> carrito;
 
-
-    public Cliente(int documento, String nombre, String apellido, String direccion, String celular) {
-        Documento = documento;
-        Nombre = nombre;
-        Apellido = apellido;
-        Direccion = direccion;
-        Celular = celular;
+    public Cliente(String nombre) {
+        this.nombre = nombre;
+        this.carrito = new ArrayList<>();
     }
 
-    public String getCelular() {
-        return Celular;
+    public void buscarProducto(Producto producto) {
+        // Lógica para buscar productos
     }
 
-
-    public void setCelular(String  celular) {
-        Celular = celular;
+    public void añadirProducto(Producto producto) {
+        carrito.add(producto);
     }
 
-    public String getDireccion() {
-        return Direccion;
+    public void eliminarProducto(Producto producto) {
+        carrito.remove(producto);
     }
 
-    public void setDireccion(String direccion) {
-        Direccion = direccion;
+    public void realizarCompra(Administrador administrador) {
+        Factura factura = administrador.generarFactura(this);
+        // Lógica para realizar la compra con la factura generada
     }
 
-
-    public String getApellido() {
-        return Apellido;
-    }
-
-    public void setApellido(String apellido) {
-        Apellido = apellido;
-    }
-
+    // Getters y Setters
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
-    public int getDocumento() {
-        return Documento;
+    public List<Producto> getCarrito() {
+        return carrito;
     }
 
-    public void setDocumento(int documento) {
-        Documento = documento;
-    }
-
-    public void agregarFactura(Factura factura) {
-        HistorialCompras.add(factura);
+    public void setCarrito(List<Producto> carrito) {
+        this.carrito = carrito;
     }
 }

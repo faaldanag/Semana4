@@ -1,54 +1,32 @@
 public class Vendedor {
-    private int Documento;
-    public  String Nombre, Apellido;
-    public  String Celular;
+    private String nombre;
 
-    public Vendedor(int documento, String nombre, String apellido, String celular) {
-        Documento = documento;
-        Nombre = nombre;
-        Apellido = apellido;
-        Celular = celular;
+    public Vendedor(String nombre) {
+        this.nombre = nombre;
     }
 
-    public int getDocumento() {
-        return Documento;
+    public void registrarProducto(Producto producto) {
+        // Lógica para registrar un nuevo producto
     }
 
-    public void setDocumento(int documento) {
-        Documento = documento;
+    public void actualizarProducto(Producto producto) {
+        // Lógica para actualizar un producto
     }
 
+    public void eliminarProducto(Producto producto) {
+        // Lógica para eliminar un producto
+    }
+
+    public void gestionarVenta(Cliente cliente) {
+        // Lógica para gestionar la venta
+    }
+
+    // Getters y Setters
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
-
-    public String getApellido() {
-        return Apellido;
-    }
-
-    public void setApellido(String apellido) {
-        Apellido = apellido;
-    }
-
-    public String getCelular() {
-        return Celular;
-    }
-
-    public void setCelular(String celular) {
-        Celular = celular;
-    }
-
-    public void AgregarVendedor(int documento, String nombre, String apellido, String celular){
-        this.Documento = documento;
-        this.Nombre = nombre;
-        this.Apellido = apellido;
-        this.Celular = celular;
-
-        System.out.print("Vendedor :" + nombre +" " + apellido +" agregado correctamente") ;
-    }
-
 }
